@@ -4,12 +4,15 @@ const cors = require('cors');
 
 const app = express();
 
-// CORS abierto (IMPORTANTE PARA LA NOTA)
 app.use(cors({
     origin: "*"
 }));
 
 app.use(express.json());
+
+app.get('/', (req, res) => {
+    res.send('API funcionando 🚀');
+});
 
 const authRoutes = require('./routes/auth');
 app.use('/', authRoutes);
